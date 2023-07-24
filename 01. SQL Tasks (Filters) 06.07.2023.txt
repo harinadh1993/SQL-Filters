@@ -1,0 +1,33 @@
+--Operators
+--tasks
+--Table: SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.LINEITEM
+
+-- write a query to display the Data with quantity greater than 50 should be shown
+A. SELECT * FROM SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.LINEITEM WHERE L_QUANTITY > 50;
+
+--write a query to display the Data with quantity less than 20 and  L_EXTENDEDPRICE  greater than 15000 should be shown
+A. SELECT * FROM SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.LINEITEM WHERE L_QUANTITY < 20 AND L_EXTENDEDPRICE > 15000;
+
+--write a query to display the Data with L_LINESTATUS is 'F' and and L_RETURNFLAG is 'A' and 'R'
+A. SELECT * FROM SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.LINEITEM WHERE L_LINESTATUS = 'F' AND L_RETURNFLAG IN('A', 'R');
+
+--write a query to display the Data with L_tax price range between 0.04 and 0.06 and l_discount is less then 0.02 and L_SHIPINSTRUCT is 'COLLECT COD' or 'TAKE BACK RETURN'
+A. SELECT * FROM SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.LINEITEM WHERE L_TAX BETWEEN 0.04 AND 0.06 AND L_DISCOUNT < 0.02 AND L_SHIPINSTRUCT = 'COLLECT COD' OR L_SHIPINSTRUCT = 'TAKE BACK RETURN';
+
+--write a query to display the Data with L_SHIPINSTRUCT is 'NONE' and L_SHIPMODE is 'RAIL' or 'MAIL'
+A. SELECT * FROM SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.LINEITEM WHERE L_SHIPINSTRUCT = 'NONE' AND (L_SHIPMODE = 'RAIL' OR L_SHIPMODE = 'MAIL');
+
+--write a query to display the Data with L_SHIPINSTRUCT is 'COLLECT COD' or L_SHIPMODE is 'MAIL' (*****)
+A. SELECT * FROM SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.LINEITEM WHERE L_SHIPINSTRUCT = 'COLLECT COD' OR L_SHIPMODE = 'MAIL';
+
+--write a query to display the Data with L_SHIPMODE is 'FOB' or 'AIR' and L_DISCOUNT range betweenn 0.01 to 0.07 and L_LINESTATUS shoud not in 'F' status
+A. SELECT * FROM SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.LINEITEM WHERE (L_SHIPMODE = 'FOB' OR L_SHIPMODE = 'AIR') AND L_DISCOUNT BETWEEN 0.01 AND 0.07 AND L_LINESTATUS NOT IN ('F');
+
+--write a query to display the Data with L_COMMENT starts with 'use'
+A. SELECT * FROM SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.LINEITEM WHERE L_COMMENT LIKE 'use%';
+
+--write a query to display the Data with L_COMMENT ends with 'care' and L_SHIPMODE is RAIL
+A. SELECT * FROM SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.LINEITEM WHERE L_COMMENT LIKE '%care' AND L_SHIPMODE = 'RAIL';
+
+--write a query to display the Data with L_SHIPMODE is TRUCK and L_QUANTITY is greater than 40 and L_DISCOUNT is less than 0.04 and L_COMMENT starts with 'h'
+A. SELECT * FROM SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.LINEITEM WHERE L_SHIPMODE = 'TRUCK' AND (L_QUANTITY > 40 AND L_DISCOUNT < 0.04) AND L_COMMENT LIKE 'h%' ;
